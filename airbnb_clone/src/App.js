@@ -1,6 +1,4 @@
-
 import Nav from './components/Nav'
-
 import Main from './components/Main'
 import './App.css';
 import axios from 'axios'
@@ -9,8 +7,16 @@ const API_KEY = process.env.API_KEY
 
 function App() {
 
+  
+
   const [reservation, setReservation] = useState(null) 
 
+  const [location, setLocation] = useState("")
+  const [person, setPerson] = useState("")
+  const [date1, setDate1] = useState("")
+  const [date2, setDate2] = useState("")
+  // const axios = require("axios");
+  
   const options = {
     method: 'GET',
     url: 'https://airbnb19.p.rapidapi.com/api/v1/searchProperty',
@@ -22,6 +28,9 @@ function App() {
   };
   
   useEffect(() => {
+    // const location = async () => {
+    //   axios.request(`${location}`)
+    // }
     const getData = async () => {
       axios.request(options).then(function (response) {
         console.log(response.data.data);
@@ -39,15 +48,24 @@ function App() {
  
 
 
-  return (
+    return (
     <div className="App">
       <header className="App-header">
           <Nav />
       </header>
       <main>
       <Main  reservation={reservation}
+             location={location} 
+             setLocation={setLocation}
+             person={person}
+             setPerson={setPerson}
+             date1={date1}
+             setDate1={setDate1}
+             date2={date2}
+             setDate2={setDate2}
                     />
       </main>
+      
     </div>
   );
 }
