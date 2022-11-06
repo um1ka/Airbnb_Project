@@ -10,12 +10,13 @@ function App() {
   
 
   const [reservation, setReservation] = useState(null) 
-
   const [location, setLocation] = useState("")
   const [person, setPerson] = useState("")
   const [date1, setDate1] = useState("")
   const [date2, setDate2] = useState("")
-  // const axios = require("axios");
+
+
+ 
   
   const options = {
     method: 'GET',
@@ -27,10 +28,11 @@ function App() {
     }
   };
   
+  
+
+
   useEffect(() => {
-    // const location = async () => {
-    //   axios.request(`${location}`)
-    // }
+  
     const getData = async () => {
       axios.request(options).then(function (response) {
         console.log(response.data.data);
@@ -63,6 +65,7 @@ function App() {
              setDate1={setDate1}
              date2={date2}
              setDate2={setDate2}
+            
                     />
       </main>
       

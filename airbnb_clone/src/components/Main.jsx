@@ -16,4 +16,3 @@ export default function Main ({reservation, setLocation, setPerson, setDate1, se
         </Routes>
     )
 }
-// person={person} date1={date1} date2={date2}
