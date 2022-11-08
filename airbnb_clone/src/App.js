@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
   
     const getData = async () => {
-      axios.request(options).then(function (response) {
+      await axios.request(options).then(function (response) {
         console.log(response.data.data);
         setReservation(response.data.data)
         console.log(reservation)

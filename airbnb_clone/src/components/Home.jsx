@@ -88,17 +88,11 @@ let locationId = ''
         props.setDate2({...date2, [event.target.id]: event.target.value });
     }
     
-    const newResult = () =>{
-       
-    {newResult.map((newResult)=>{
-        <p>Address: {newResult.publicAddress}</p>
-    
-    })}
-       
-}
-        
-    return (
+
+ console.log(results)
+    return results? (
         <div>
+            
         <h1>I am Home</h1>
         <form id="form">
            <input value={location[""]} type="text" placeholder="Where to" onChange={handleChange} />
@@ -108,14 +102,29 @@ let locationId = ''
            <button type="submit" onClick={handleSubmit} id="submit">Search</button>
            </form>
 
-       
-
-       
+    
+           {results.map((result)=>(
+           
+            <div>
+            <p>Address: {result.publicAddress}</p>
+            <img src={result.images[4]}/>
+           
+            </div>
+            
+            
+           ))}
         
-
-
         </div>
 
        
-    )
+    ):<div>
+          <h1>I am Home</h1>
+        <form id="form">
+           <input value={location[""]} type="text" placeholder="Where to" onChange={handleChange} />
+           <input value={person[""]} type="text" placeholder="Who" id="person" onChange={handlePersonChange}/>
+           <input value={date1[""]} type="date" placeholder="When" id="date" onChange={handleDate1Change}/>
+           <input value={date2[""]} type="date" placeholder="When" id="date" onChange={handleDate2Change}/>
+           <button type="submit" onClick={handleSubmit} id="submit">Search</button>
+           </form>
+    </div>
 }
