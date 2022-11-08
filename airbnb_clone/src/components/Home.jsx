@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import Reservation from './Reservation'
+
 
 export default function Home (props) {
     const location=props.location
@@ -13,12 +13,14 @@ export default function Home (props) {
 const destinationOptions = {
   method: 'GET',
   url: 'https://airbnb19.p.rapidapi.com/api/v1/searchDestination',
-  params: {query: location , country: 'USA'},
+  params: {query: location , country: 'USA' },
   headers: {
     'X-RapidAPI-Key': '6534f8d41bmshc365272f6276afdp1cd116jsn007772c79a91',
     'X-RapidAPI-Host': 'airbnb19.p.rapidapi.com'
   }
 };
+
+let locationId = ''
 
     const [results, setResults] = useState("")
 
@@ -26,11 +28,13 @@ const destinationOptions = {
         method: 'GET',
         url: 'https://airbnb19.p.rapidapi.com/api/v1/searchPropertyByPlace',
         params: {
-          id: 'ChIJ7cv00DwsDogRAMDACa2m4K8',
-          display_name: 'Chicago, IL',
-          totalRecords: '10',
+          id: `${locationId}`,
+          display_name: location[''],
+          totalRecords: '40',
           currency: 'USD',
-          adults: '1'
+        //   adults: `${person['person']}`,
+        //   checkin: `${date1['date']}`,
+        //   checkout: `${date2['date']}`
         },
         headers: {
           'X-RapidAPI-Key': '6534f8d41bmshc365272f6276afdp1cd116jsn007772c79a91',
@@ -41,14 +45,19 @@ const destinationOptions = {
     const getData = async () => {
         let displayName = ''
 
+        console.log(location, date1, date2, person)
+
         axios.request(destinationOptions).then(function (response) {
-            
+            locationId = response.data.data[0].id
             displayName=response.data.data[0].display_name;
             console.log(displayName);
+            console.log(locationId)
         })
 
         setTimeout(() => {
             options.params.display_name=displayName
+            options.params.id=locationId
+            console.log(options)
             axios.request(options).then(function (response) {
                 console.log(response.data.data);
                 setResults(response.data.data) 
@@ -79,8 +88,15 @@ const destinationOptions = {
         props.setDate2({...date2, [event.target.id]: event.target.value });
     }
     
+    const newResult = () =>{
+       
+    {newResult.map((newResult)=>{
+        <p>Address: {newResult.publicAddress}</p>
     
-
+    })}
+       
+}
+        
     return (
         <div>
         <h1>I am Home</h1>
@@ -92,7 +108,12 @@ const destinationOptions = {
            <button type="submit" onClick={handleSubmit} id="submit">Search</button>
            </form>
 
-           <Reservation  />
+       
+
+       
+        
+
+
         </div>
 
        
