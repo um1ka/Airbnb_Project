@@ -1,7 +1,9 @@
+
+
 export default function Confirm () {
     return (
         <div>
-            <h1>Confirmation Page</h1>
+            <h1>Details</h1>
         </div>
     )
 }

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Home (props) {
+    const navigate= useNavigate()
     const location=props.location
     const person=props.person 
     const date1=props.date1
@@ -106,8 +108,12 @@ let locationId = ''
            {results.map((result)=>(
            
             <div>
-            <p>Address: {result.publicAddress}</p>
-            <img src={result.images[4]}/>
+            <p>Address: {result.publicAddress}</p><br></br>
+            <span>Adults: {result.adults}</span><br></br>
+            <span>Ratings: {result.avgRating}</span><br></br>
+            <span>Checkin: {result.checkin}</span><br></br>
+            <a href={`/confirm/${result.id}`}><img  src={result.images[4]}/></a>
+
            
             </div>
             
@@ -122,8 +128,8 @@ let locationId = ''
         <form id="form">
            <input value={location[""]} type="text" placeholder="Where to" onChange={handleChange} />
            <input value={person[""]} type="text" placeholder="Who" id="person" onChange={handlePersonChange}/>
-           <input value={date1[""]} type="date" placeholder="When" id="date" onChange={handleDate1Change}/>
-           <input value={date2[""]} type="date" placeholder="When" id="date" onChange={handleDate2Change}/>
+           <input value={date1[""]} type="date" placeholder="When" id="date1" onChange={handleDate1Change}/>
+           <input value={date2[""]} type="date" placeholder="When" id="date2" onChange={handleDate2Change}/>
            <button type="submit" onClick={handleSubmit} id="submit">Search</button>
            </form>
     </div>
