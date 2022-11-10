@@ -96,10 +96,12 @@ let locationId = ''
 
  console.log(results)
     return results? (
-        <div>
+        <div className='poster'>
             
-        <h1>Make a reservation</h1>
+            <div className='space'></div>
         <form id="form">
+        <h1>Find places to stay on Airbnb</h1>
+        <p>Discover entire homes and private rooms perfect for any trip.</p>
            <input  type="text" placeholder="Where to"  id="location" onChange={handleChange} />
            <input  type="text" placeholder="Who" id="person" onChange={handlePersonChange}/>
            <input  type="date" placeholder="When" id="date" onChange={handleDate1Change}/>
@@ -112,12 +114,12 @@ let locationId = ''
            
             <div className='detailCard'>
             <a href={`/confirm/${result.id}`}><img  src={result.images[4]}/></a>
-            <span>Price: {result.accessibilityLabel}</span><br></br>
-            <span>Adults: {result.adults}</span><br></br>
-            <span>Ratings: {result.avgRating}</span><br></br>
-            <span>Checkin: {result.checkin}</span><br></br>
-            <span>Checkout: {result.checkout}</span>
-            <p>Address: {result.publicAddress}</p><br></br>
+            <span><strong>Price:</strong> {result.accessibilityLabel}</span><pre></pre>
+            <span><strong>Adults:</strong> {result.adults}</span><pre></pre>
+            <span><strong>Ratings:</strong> {result.avgRating}</span><pre></pre>
+            <span><strong>Checkin:</strong> {result.checkin}</span><pre></pre>
+            <span><strong>Checkout:</strong> {result.checkout}</span><pre></pre>
+            <span><strong>Address:</strong> {result.publicAddress}</span><br></br>
             <button onClick={()=>{
                 document.querySelector('.btn').style.display='block'
             }}>More Details</button>
@@ -134,13 +136,16 @@ let locationId = ''
         </div>
 
        
-    ):<div>
-          <h1>I am Home</h1>
+    ):
+    <div className='poster'>
+         <div className='space'></div>
         <form id="form">
+        <h1>Find places to stay on Airbnb</h1>
+        <p>Discover entire homes and private rooms perfect for any trip.</p>
            <input value={location[""]} type="text" placeholder="Where to" onChange={handleChange} />
            <input value={person[""]} type="text" placeholder="Who" id="person" onChange={handlePersonChange}/>
            <input value={date1[""]} type="date" placeholder="When" id="date1" onChange={handleDate1Change}/>
-           <input value={date2[""]} type="date" placeholder="When" id="date2" onChange={handleDate2Change}/>
+           <input value={date2[""]} type="date" placeholder="When" id="date2" onChange={handleDate2Change}/><pre></pre>
            <button type="submit" onClick={handleSubmit} id="submit">Search</button>
            </form>
     </div>

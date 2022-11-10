@@ -24,6 +24,7 @@ body, html {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   /* margin-left: 80px; */
+  margin-top: 18%;
   
 }
 .detailCard{
@@ -33,13 +34,14 @@ body, html {
   justify-content: space-evenly;
   margin: 10px;
   text-align: center;
-  box-shadow: 5px 5px 5px 5px;
+  box-shadow: 5px 5px 5px 5px gray;
   border-radius: 12px;
   font-family: 'Cormorant Garamond', serif; 
   flex-wrap: wrap;
   width: 350px;
   background-color: white;
 }
+
 
 li{
     width: 350px;
@@ -57,20 +59,59 @@ img{
   font-size: 25px;
   width: 100%;
   height: 70px;
-  background-color: bisque;
+ 
   padding-top: 20px;
+  
 }
 
 input{
-  width: 45%;
+  width: 35%;
   height: 40px;
   margin: 10px;
-  background-color: antiquewhite;
+  border-radius: 0.5em;
+}
+
+form{
+  width: 40%;
+  height: 500px;
+  background-color: white;
+  box-shadow: 5px 5px 5px 5px black;
+  border-radius: 0.5em;
+  margin-left: 50px;
+  padding-top: 10px;
+  
 }
 #submit{
-  width: 10%;
+  width: 30%;
   height: 40px;
+  background-color: palevioletred;
+  border-radius: 0.5em;
 }
 .btn{
   display: none;
+}
+
+a{
+  text-decoration: none !important;
+  color: black;
+}
+.jumbotron{
+  width: 100%;
+  height: 500px;
+  background-image: url("https://customhomesonline.com.au/wp-content/uploads/2015/09/Contemporary-House-21.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.poster{
+  width: auto;
+  height: 700px;
+  background-image: url("https://press.airbnb.com/wp-content/uploads/sites/4/2018/08/10-airship-002-min.jpg?fit=2500%2C1669");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+p{
+  color: gray;
+}
+.space{
+  height: 70px;
 }

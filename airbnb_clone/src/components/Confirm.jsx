@@ -19,10 +19,13 @@ export default function Confirm ({result}) {
     // console.log(detail)
     return (
         <div>
-            
-            <h1>Details</h1>
-            <h2>{result.city}</h2>
-                     </div>
+            <h3>Details</h3>
+                <span><strong>City:</strong> {result.city}<br></br></span><pre></pre>
+                <span><strong>Room Type:</strong> {result.roomType}</span><pre></pre>
+                <span><strong>Location:</strong> {result.title}</span><pre></pre>
+                <span><strong>Bathroom:</strong> {result.listingBathroomLabel}</span><pre></pre>
+                <span><strong>Beds:</strong> {result.listingBedLabel}</span>
+        </div>
                     
         
         )

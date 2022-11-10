@@ -3,7 +3,10 @@ console.log(reservation)
     
     return reservation ? (
         <div className="card">
-            <h1>Search</h1>
+            <div className="jumbotron">
+             
+            </div>
+            <h1>Airbnb</h1>
             <ul>
                 <div className="cardContainer">
                 {reservation?.map((reservation) =>(
