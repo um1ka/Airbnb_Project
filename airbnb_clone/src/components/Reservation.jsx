@@ -3,8 +3,9 @@ console.log(reservation)
     
     return reservation ? (
         <div className="card">
-            <h1>Reservation Page</h1>
+            <h1>Search</h1>
             <ul>
+                <div className="cardContainer">
                 {reservation?.map((reservation) =>(
                   <li>
                       <img src={reservation.images[1]}></img>
@@ -17,6 +18,7 @@ console.log(reservation)
                   </li>
             
                 ))}
+                </div>
             </ul>
 
         </div> 

@@ -8,11 +8,9 @@ export default function Main ({reservation, setLocation, setPerson, setDate1, se
     
     return(
         <Routes>
-            <Route path="/" element={<Home setLocation={setLocation} setPerson={setPerson} setDate1={setDate1} setDate2={setDate2} location={location} person={person} date1={date1} date2={date2}/>}/>
             <Route path="/reservation" element={<Reservation reservation={reservation}/>}/>
-
+            <Route path="/" element={<Home setLocation={setLocation} setPerson={setPerson} setDate1={setDate1} setDate2={setDate2} location={location} person={person} date1={date1} date2={date2}/>}/>
             <Route path="/confirm/:id" element={<Confirm/>}/>
-            
         </Routes>
     )
 }

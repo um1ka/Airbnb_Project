@@ -76,7 +76,9 @@ let locationId = ''
 
     const handleChange =(event) =>{
          props.setLocation({...location, [event.target.id]: event.target.value });
+        
         console.log(location);
+       
     }
 
     const handlePersonChange =(event) =>{
@@ -95,31 +97,34 @@ let locationId = ''
     return results? (
         <div>
             
-        <h1>I am Home</h1>
+        <h1>Make a reservation</h1>
         <form id="form">
-           <input value={location[""]} type="text" placeholder="Where to" onChange={handleChange} />
-           <input value={person[""]} type="text" placeholder="Who" id="person" onChange={handlePersonChange}/>
-           <input value={date1[""]} type="date" placeholder="When" id="date" onChange={handleDate1Change}/>
-           <input value={date2[""]} type="date" placeholder="When" id="date" onChange={handleDate2Change}/>
+           <input  type="text" placeholder="Where to"  id="location" onChange={handleChange} />
+           <input  type="text" placeholder="Who" id="person" onChange={handlePersonChange}/>
+           <input  type="date" placeholder="When" id="date" onChange={handleDate1Change}/>
+           <input  type="date" placeholder="When" id="date" onChange={handleDate2Change}/>
            <button type="submit" onClick={handleSubmit} id="submit">Search</button>
            </form>
 
-    
+        <div className='cardContainer'>
            {results.map((result)=>(
            
-            <div>
-            <p>Address: {result.publicAddress}</p><br></br>
+            <div className='detailCard'>
+            <a href={`/confirm/${result.id}`}><img  src={result.images[4]}/></a>
+            <span>Price: {result.accessibilityLabel}</span><br></br>
             <span>Adults: {result.adults}</span><br></br>
             <span>Ratings: {result.avgRating}</span><br></br>
             <span>Checkin: {result.checkin}</span><br></br>
-            <a href={`/confirm/${result.id}`}><img  src={result.images[4]}/></a>
+            <span>Checkout: {result.checkout}</span>
+            <p>Address: {result.publicAddress}</p><br></br>
+            
 
-           
+            
             </div>
             
-            
+           
            ))}
-        
+        </div>
         </div>
 
        
