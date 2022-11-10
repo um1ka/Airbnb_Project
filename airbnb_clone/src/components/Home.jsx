@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Confirm from './Confirm'
 
 
 export default function Home (props) {
@@ -117,7 +118,12 @@ let locationId = ''
             <span>Checkin: {result.checkin}</span><br></br>
             <span>Checkout: {result.checkout}</span>
             <p>Address: {result.publicAddress}</p><br></br>
-            
+            <button onClick={()=>{
+                document.querySelector('.btn').style.display='block'
+            }}>More Details</button>
+           <div className='btn'> 
+               <Confirm result={result} /> 
+           </div>
 
             
             </div>
